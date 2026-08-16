@@ -22,7 +22,7 @@ Purpose of preexisting folders:
 - **assets** - stores all images, fonts, shaders, models, music, sfxes & all other posible assets that are not directly included in node tree & aren't custom Resources
 - **const_data** - stores custom Resources that are supposed to be set once before game start & never further changed.
 - **dev** - stores artifacts of dev mode like screenshots, recordings, etc.
-- **src** - stores managers, utils, scenes & scenes' data.
+- **src** - stores managers, utils, scenes & scenes' data. Folders inside _src_ should follow fetaure-based approach.
 - **tests** - stores tests for scenes & scripts.
  
 ### Saves
