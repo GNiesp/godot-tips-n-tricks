@@ -13,6 +13,9 @@ The repository is created to:
   - **compile time safe** - usage of typing & assetions make bugs occur on game's launch
   - **modular** - each module affects only it's state
 
+### Data-driven design
+Nodes shouldn't (in most cases) rely on each other when it comes to data. Instead they should subscribe to values of a separate Resource which works as SSOT. That way nodes are independent of each other and can be easily detached or attached to node tree. 
+
 ### Folders
 Each scene + script should be moved into separate folder.
 Purpose of preexisting folders:
