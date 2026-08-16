@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="godot_tips_n_tricks"
+run/main_scene="uid://c247ekbee31da"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*uid://b55lryf6k1rbq"
+SignalBus="*uid://dpxfqk7lpic6e"
 
 [physics]
 
