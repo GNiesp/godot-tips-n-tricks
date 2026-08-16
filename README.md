@@ -13,6 +13,19 @@ The repository is created to:
   - **compile time safe** - usage of typing & assetions make bugs occur on game's launch
   - **modular** - each module affects only it's state
 
+### Dynamic scene instantiation
+Each scene that needs to be dynamically added should offer _static func new\_instance()_ in it's script that's return type should be it's class_name. All the scenes that need to be instantiated inside _new\_instance()_ should be stored in Scenes Resource.
+Example:
+```
+class_name Main extends Node
+
+static func new_instance() -> Main:
+    var main: Main = GameManager.scenes.MAIN_SCENE.instantiate()
+    # Any value assignments go here
+    return main
+```
+That way we get strong typing everywhere we need instantiate some scene.
+
 ### Data-driven design
 Nodes shouldn't (in most cases) rely on each other when it comes to data. Instead they should subscribe to values of a separate Resource which works as SSOT. That way nodes are independent of each other and can be easily detached or attached to node tree. 
 
