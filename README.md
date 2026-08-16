@@ -16,6 +16,7 @@ The repository is created to:
 ### Branching
 It should follow GitFlow Workflow rules.
 ![GitFlow Workflow Graph](README_assets/gitflow.webp)
+
 There should be 2 main branches that is:
 - **main** - official builds are created from here. All the code that lands on this branch should be well tested & production ready.
 - **develop** - main development branch. That's the only (aside from hotfixes) branch that can be merged into main.
