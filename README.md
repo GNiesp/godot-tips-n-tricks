@@ -12,6 +12,17 @@ The repository is created to:
   - **loosly coupled** - refactoring one module won't affect others too much
   - **compile time safe** - usage of typing & assetions make bugs occur on game's launch
   - **modular** - each module affects only it's state
+ 
+### Branching
+It should follow GitFlow Workflow rules. There should be 2 main branches that is:
+- **main** - official builds are created from here. All the code that lands on this branch should be well tested & production ready.
+- **develop** - main development branch. That's the only (aside from hotfixes) branch that can be merged into main.
+
+For any feature development there should be a branch created basing on **develop** branch.
+
+![GitFlow Workflow Graph](README_assets/gitflow.webp)
+
+
 
 ### Dynamic scene instantiation
 Each scene that needs to be dynamically added should offer _static func new\_instance()_ in it's script that's return type should be it's class_name. All the scenes that need to be instantiated inside _new\_instance()_ should be stored in Scenes Resource.
