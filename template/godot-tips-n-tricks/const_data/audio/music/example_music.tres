@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Sound" format=3 uid="uid://de8rnwtri465x"]
+
+[ext_resource type="Script" uid="uid://cjfheqgwfp1aq" path="res://const_data/audio/sound/sound.gd" id="1_ai2rb"]
+
+[resource]
+script = ExtResource("1_ai2rb")
+sound_name = "event://SOMETHING"
+metadata/_custom_type_script = "uid://cjfheqgwfp1aq"

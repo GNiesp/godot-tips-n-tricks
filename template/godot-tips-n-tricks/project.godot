@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://b55lryf6k1rbq"
 SignalBus="*uid://dpxfqk7lpic6e"
+ErrorBus="*uid://7s5rmvfv36td"
+SoundManager="*uid://bpwfprtk1nyop"
 
 [physics]
 

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://c247ekbee31da"]
 
 [ext_resource type="Script" uid="uid://or2pqn1kfcnc" path="res://src/main/main.gd" id="1_3eh75"]
+[ext_resource type="PackedScene" uid="uid://b25i8onamb21n" path="res://src/utils/tooltips/tooltip_canvas/tooltip_canvas.tscn" id="2_3s6yk"]
 
 [node name="Main" type="Node" unique_id=387200153]
 script = ExtResource("1_3eh75")
+
+[node name="TooltipCanvas" parent="." unique_id=107762882 instance=ExtResource("2_3s6yk")]
