@@ -12,6 +12,15 @@ The repository is created to:
   - **loosly coupled** - refactoring one module won't affect others too much
   - **compile time safe** - usage of typing & assetions make bugs occur on game's launch
   - **modular** - each module affects only it's state
+
+### Folders
+Each scene + script should be moved into separate folder.
+Purpose of preexisting folders:
+- **assets** - stores all images, fonts, shaders, models, music, sfxes & all other posible assets that are not directly included in node tree & aren't custom Resources
+- **const_data** - stores custom Resources that are supposed to be set once before game start & never further changed.
+- **dev** - stores artifacts of dev mode like screenshots, recordings, etc.
+- **src** - stores managers, utils, scenes & scenes' data.
+- **tests** - stores tests for scenes & scripts.
  
 ### Saves
 Saves should be created using custom Resource class containing all the info that needs to be saved.
