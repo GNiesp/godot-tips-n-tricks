@@ -1,1 +1,1 @@
-class_name Tooltip extends Control
+@abstract class_name Tooltip extends Control

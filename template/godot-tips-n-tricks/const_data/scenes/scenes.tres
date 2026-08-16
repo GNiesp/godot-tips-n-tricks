@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Scenes" format=3 uid="uid://tv00guge6nfi"]
+
+[ext_resource type="PackedScene" uid="uid://c247ekbee31da" path="res://src/main/main.tscn" id="1_kj07k"]
+[ext_resource type="Script" uid="uid://84gacmar3kce" path="res://const_data/scenes/scenes.gd" id="1_xv7rn"]
+
+[resource]
+script = ExtResource("1_xv7rn")
+MAIN_SCENE = ExtResource("1_kj07k")
+metadata/_custom_type_script = "uid://84gacmar3kce"
