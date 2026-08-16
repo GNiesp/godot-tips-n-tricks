@@ -59,7 +59,7 @@ Data for complex UI elements like menues, maps, tables, etc. should be stored in
 
 Resources get autodestructed when no node reads from them so each time new interface is created fresh state is produced.
 
-### Simple Types Stateful Wrapper
+### Stateful Types
 For each simple type like int, string, etc. there is a wrapper class that make them stateful - other nodes can subscribe to it's _changed(data)_ signal. It should be used everywhere where reactivity is needed eg. UIs.
 
 ### Formatter
