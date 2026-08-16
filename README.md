@@ -12,7 +12,48 @@ The repository is created to:
   - **loosly coupled** - refactoring one module won't affect others too much
   - **compile time safe** - usage of typing & assetions make bugs occur on game's launch
   - **modular** - each module affects only it's state
- 
+
+### Rare _process rule
+Each time you want to use _process func you need to answer 2 questions:
+1. Do I need delta since last frame? Yes -> Use _process, No -> Go to step 2
+2. Do I need to update state each frame? Yes -> Use _process, No -> Just rely on signals
+
+Although using signals usually will result in additional 2-3 lines of code it can very effectively separate concerns.
+Example using _process:
+```
+extends Node
+
+@onready var hp_label: Label = %HPLabel
+@onready var money_label: Label = %MoneyLabel
+
+func _process(_delta: float) -> void:
+    hp_label.text = str(ProcessSourceOfTruth.player_hp)
+    money_label.text = str(ProcessSourceOfTruth.player_money)
+```
+
+Example using signals:
+```
+extends Node
+
+@onready var hp_label: Label = %HPLabel
+@onready var money_label: Label = %MoneyLabel
+
+func _ready() -> void:
+    ProcessSourceOfTruth.player_hp_changed.connect(_on_player_hp_changed)
+    ProcessSourceOfTruth.player_money_changed.connect(_on_player_money_changed)
+
+func _on_player_hp_changed(hp: int):
+    hp_label.text = str(hp)
+
+func _on_player_money_changed(money: int):
+    money_label.text = str(money)
+```
+
+Although using signals added additional lines it's still preferable because:
+- It's more efficient to use set value only when it's changed rather than 60 times per second even if no change happened.
+- It's easier to track specific callbacks - we clearly se what happens on certain signal emit & we can easily modify that single func rather than modifying whole _process func.
+
+
 ### Branching
 It should follow GitFlow Workflow rules.
 ![GitFlow Workflow Graph](README_assets/gitflow.webp)
