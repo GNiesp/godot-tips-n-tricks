@@ -40,7 +40,7 @@ static func new_instance() -> Main:
 That way we get strong typing everywhere we need instantiate some scene.
 
 ### Data-driven design
-Nodes shouldn't (in most cases) rely on each other when it comes to data. Instead they should subscribe to values of a separate Resource which works as SSOT. That way nodes are independent of each other and can be easily detached or attached to node tree. 
+Nodes shouldn't (in most cases) rely on each other when it comes to data. Instead they should subscribe to values of a separate Resource which works as [SSOT](https://www.getguru.com/reference/single-source-of-truth). That way nodes are independent of each other and can be easily detached or attached to node tree. 
 
 ### Folders
 Each scene + script should be moved into separate folder.
