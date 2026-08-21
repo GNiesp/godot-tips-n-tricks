@@ -18,7 +18,7 @@ In general connecting nodes that are in separate branches of scene tree & are fa
 
 There are multiple ways to connect to signal in Godot, but the most type safe way is to use following syntax:
 ```
-signal_name.connect(callback_func) # Which is in opposition to connect("signal_name", callback_func) more type safe & provides actual compile time checking if signal exists
+signal_name.connect(callback_func) # Does the same as connect("signal_name", callback_func), but in type safe way
 ```
 
 ### Rare _process rule
