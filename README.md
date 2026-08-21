@@ -13,6 +13,14 @@ The repository is created to:
   - **compile time safe** - usage of typing & assetions make bugs occur on game's launch
   - **modular** - each module affects only it's state
 
+### A word about signals
+In general connecting nodes that are in separate branches of scene tree & are far away should be made using signals with the use of **SignalBus** or with the use of specialized _\_data_ resources.
+
+There are multiple ways to connect to signal in Godot, but the most type safe way is to use following syntax:
+```
+signal_name.connect(callback_func) # Which is in opposition to connect("signal_name", callback_func) more type safe & provides actual compile time checking if signal exists
+```
+
 ### Rare _process rule
 Each time you want to use _process func you need to answer 2 questions:
 1. Do I need delta since last frame? Yes -> Use _process, No -> Go to step 2
