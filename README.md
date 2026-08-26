@@ -81,18 +81,24 @@ For production updates there should be **release** branch created that has to be
 
 
 
-### Dynamic scene instantiation
-Each scene that needs to be dynamically added should offer _static func new\_instance()_ in it's script that's return type should be it's class_name. All the scenes that need to be instantiated inside _new\_instance()_ should be stored in Scenes Resource.
+### Factory constructors / Dynamic scene instantiation
+Each scene that needs to be dynamically added should offer _static func new\_instance()_ in it's script that's return type should be it's class_name.
 Example:
 ```
 class_name Main extends Node
 
 static func new_instance() -> Main:
-    var main: Main = GameManager.scenes.MAIN_SCENE.instantiate()
+    const SCENE := preload("./scene.tscn") # It's useful to create const here instead of whole script to enable inherited scenes to inject their own scenes in factory constructor.
+    var main: Main = SCENE.instantiate()
     # Any value assignments go here
     return main
 ```
 That way we get strong typing everywhere we need instantiate some scene.
+```
+# Godot now can deduce the type of instantiated scene -> Normally it'd fall back to Node type
+# Additionally our code is much more declarative and is more readable
+var our_instance := Main.new_instance()  
+```
 
 ### Data-driven design
 Nodes shouldn't (in most cases) rely on each other when it comes to data. Instead they should subscribe to values of a separate Resource which works as [SSOT](https://www.getguru.com/reference/single-source-of-truth). That way nodes are independent of each other and can be easily detached or attached to node tree. 
