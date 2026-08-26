@@ -141,6 +141,8 @@ Purpose of preexisting folders:
 ### Saves
 Saves should be created using custom Resource class containing all the info that needs to be saved.
 
+There is one crucial downside of using Resources for saves - Resources can be executed & potentially someone could inject malware into those files so using someone's save is **not** safe!
+
 ### UI Data
 Data for complex UI elements like menues, maps, tables, etc. should be stored in a specialized Resource with _\_data_ suffix. There should be only one instance of such data component stored in filesystem and that file should be used as a single source of truth for whole node tree that needs that data.
 
