@@ -103,6 +103,32 @@ var our_instance := Main.new_instance()
 ### Data-driven design
 Nodes shouldn't (in most cases) rely on each other when it comes to data. Instead they should subscribe to values of a separate Resource which works as [SSOT](https://www.getguru.com/reference/single-source-of-truth). That way nodes are independent of each other and can be easily detached or attached to node tree. 
 
+Example:
+```
+# minigame_data.gd
+
+var score: float:
+    set(value):
+        score = value
+        score_set.emit(score)
+signal score_set(value: float)
+var action: Action:
+    set(value):
+        action = value
+        action_set.emit(action)
+signal action_set(value: Action)
+var ingredient: Ingredient:
+    set(value):
+        ingredient = value
+        ingredient_set.emit(ingredient)
+signal ingredient_set(value: Ingredient)
+```
+
+And then it can be easily used in any Node no matter where it resides in the scene tree after Resource is created:
+```
+@export var minigame_end_screen_data: MinigameEndScreenData
+```
+
 ### Folders
 Each scene + script should be moved into separate folder.
 Purpose of preexisting folders:
