@@ -100,6 +100,15 @@ That way we get strong typing everywhere we need instantiate some scene.
 var our_instance := Main.new_instance()  
 ```
 
+### External Data Sources
+In general our in game elements should be as brainless as they can be. Sometimes we have some data stored for example in GameManager & that data has to be used in a few different places in the same screen.
+Good example would be our items equipment - we want to show each individual item slot, total number of slots used, total weight of items, etc. In that case we will have at least few different nodes.
+It's easy to just get the data from GameManager in each element's individual script, but it has at least a few downsides.
+First is coupling of many elements with some data. On that data refactor or our node's refactor we'd have to iterate over many different scripts just to change their data source.
+Secondly there is space for desync between different nodes of the scene as each node gets value from GameManager on it's own & possibly in the different time.
+
+Solution to this is top-to-bottom data flow in which we'd get all neccessary data in the scene's root node & that data would be used in it's children. In case of more complex UI it can be difficult to pass the data down from node to node at there might be a lot of scenes included in each other and not all of them using this data. Solution to that problem is described in _Data-driven design_ paragraph.
+
 ### Data-driven design
 Nodes shouldn't (in most cases) rely on each other when it comes to data. Instead they should subscribe to values of a separate Resource which works as [SSOT](https://www.getguru.com/reference/single-source-of-truth). That way nodes are independent of each other and can be easily detached or attached to node tree. 
 
