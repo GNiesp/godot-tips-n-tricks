@@ -13,6 +13,25 @@ The repository is created to:
   - **compile time safe** - usage of typing & assetions make bugs occur on game's launch
   - **modular** - each module affects only it's state
 
+### Possible languages
+Godot offers 2 fully supported languages to create games. Those are:
+- GDscript - Python like language with easy to learn curve & multiple possibilities, but with some scalability problems in larger codebases
+- .NET/C# - Microsoft backed language used as an alternative to GDScript. Also used in Unity so it's often choosed by people migrating to Godot from that engine.
+
+There are benefits & downsides to both of these languages and there isn't one best decision when it comes to choosing between them.
+GDscript used in Godot offers what I'd call "hot reload" meaning that the changes done in code while game is running will have impact in a game. That's useful for example when we prototype some features & want to check quickly multiple various for gravity, speed, etc.
+C# on the other hand doesn't have hot reload, but it has something that GDScript lacks. Years of constant improvement & really good scalability in larger games. It has strong object oriented features like interfaces, virtual methods, class extensions & others that GDScript (at the moment) lacks.
+
+There's also one crucial difference between those languages. Visibility of funcs & variables. GDScript is really relaxed when it comes to differentiating between private/public funcs & variables which might lead to some really poor quality code as shown below:
+```
+# Private built-in _ready func from another class is used inside other class.
+# Not only that it might lead to unexpected behavior like twice initialization of some variables
+# But it also might create some really tricky to find bugs
+other_class._ready()
+```
+
+In case of .NET we simply can't call other classes private methods & variables which practically make that issue not existant.
+
 ### A word about signals
 In general connecting nodes that are in separate branches of scene tree & are far away should be made using signals with the use of **SignalBus** or with the use of specialized _\_data_ resources.
 
