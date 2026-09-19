@@ -40,6 +40,11 @@ There are multiple ways to connect to signal in Godot, but the most type safe wa
 signal_name.connect(callback_func) # Does the same as connect("signal_name", callback_func), but in type safe way
 ```
 
+### Placeholders in interfaces
+Godot offers quite fancy way to imagine how the things would look like if...
+That way is to use `placeholder` checkbox inside editor. When you select any node in a node tree there's an option to mark it as placeholder. If you check it then that node won't be instantiated when the game runs & is only visible in the editor.
+It's especially useful when we want to see how some node would like in game even if for example it have to be dynamically instantiated via code.
+
 ### Rare _process rule
 Each time you want to use _process func you need to answer 2 questions:
 1. Do I need delta since last frame? Yes -> Use _process, No -> Go to step 2
